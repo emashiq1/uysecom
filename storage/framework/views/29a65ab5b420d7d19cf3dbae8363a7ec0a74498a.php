@@ -1,8 +1,10 @@
 <?php $__env->startSection('content'); ?>
 <div class="col-md-6">	
 	<h2>Update Category</h2>
-	<?php echo Form::model($data, ['route' => ['category.edit',$data->id],'method' => 'PUT',
+	<?php echo Form::model($data, ['route' => ['category.update',$data->id],
 	'class'=>'form-group']); ?>
+
+	<?php echo e(method_field('PUT')); ?>
 
 	<div>
 		<?php echo Form::label('Title', '', []); ?>
@@ -29,12 +31,15 @@
 		<option value="0">Select</option>}
 		
 		<?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
-		<option value="<?php echo e($element->id); ?>"
+		<?php if($element->id !=$data->id): ?>
+			<option value="<?php echo e($element->id); ?>"
 		<?php if($element->id == $data->parent_id): ?>
 			<?php echo e('Selected'); ?>
 
 		<?php endif; ?>
 		><?php echo e($element->title); ?></option>
+		<?php endif; ?>
+		
 		<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 	</select>
 	

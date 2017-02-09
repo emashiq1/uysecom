@@ -2,8 +2,9 @@
 @section('content')
 <div class="col-md-6">	
 	<h2>Update Category</h2>
-	{!! Form::model($data, ['route' => ['category.edit',$data->id],'method' => 'PUT',
+	{!! Form::model($data, ['route' => ['category.update',$data->id],
 	'class'=>'form-group']) !!}
+	{{ method_field('PUT') }}
 	<div>
 		{!! Form::label('Title', '', []) !!}
 	{!! Form::text('title', $data->title, ['class'=>'form-control']) !!}
@@ -24,11 +25,14 @@
 		<option value="0">Select</option>}
 		
 		@foreach ($list as $element)
-		<option value="{{$element->id}}"
+		@if ($element->id !=$data->id)
+			<option value="{{$element->id}}"
 		@if ($element->id == $data->parent_id)
 			{{'Selected'}}
 		@endif
 		>{{$element->title}}</option>
+		@endif
+		
 		@endforeach
 	</select>
 	

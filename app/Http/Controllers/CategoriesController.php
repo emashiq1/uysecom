@@ -15,7 +15,8 @@ class CategoriesController extends Controller
     public function index()
     {
         //
-        $data=Category::all();
+        $data=Category::with('Categories')->get();
+        
         return view('category.index',compact('data'));
     }
 
@@ -100,8 +101,11 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-          $check=Category::update($request->except(['_token']));
+    	$data=$request->except(['_token','_method']);
+    	
+    	
+        $check=Category::where('id',$id)->update($data);
+          
             if($check)
             {
                 
@@ -117,6 +121,7 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::destroy($id);
+        return back();
     }
 }
