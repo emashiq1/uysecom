@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Category;
+use Validator;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -14,6 +15,8 @@ class CategoriesController extends Controller
     public function index()
     {
         //
+        $data=Category::all();
+        return view('category.index',compact('data'));
     }
 
     /**
@@ -24,6 +27,8 @@ class CategoriesController extends Controller
     public function create()
     {
         //
+         $data=Category::all('title','id');
+        return view('category.create',compact('data'));
     }
 
     /**
@@ -35,6 +40,28 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         //
+       /* $data=$request->except(['_method','_token']);
+
+        $validator=Validator::make($data, [
+        'title' => 'required|unique:posts|max:255',
+        'status' => 'required|max:255',
+        ]);
+        
+        if($validator->fails())
+        {
+            return back()
+                ->withErrors($validator);
+        }
+        else{*/
+            $check=Category::create($request->except(['_token']));
+            if($check)
+            {
+                
+                return redirect('admin/category');
+            }
+            /*    
+            }*/
+           
     }
 
     /**
@@ -56,7 +83,12 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $list=Category::all();
+        $data=Category::find($id);
+        return view('category.edit')
+        ->with('list',$list)
+        ->with('data',$data);
+
     }
 
     /**
@@ -69,6 +101,12 @@ class CategoriesController extends Controller
     public function update(Request $request, $id)
     {
         //
+          $check=Category::update($request->except(['_token']));
+            if($check)
+            {
+                
+                return redirect('admin/category');
+            }
     }
 
     /**

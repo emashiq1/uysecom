@@ -79,8 +79,36 @@
             </div>
            <!-- User Management end -->
     @endif
+    @if(checkMenuActive(['CategoriesController@create'],$menu_list))
+           <!-- User Management start -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                    {{link_to('#category_management',mystudy_case('category_management'),array('data-toggle'=>'collapse','data-parent'=>'#accordion-menu'))}}
+                    </h4>
+                </div>
+                <div id="category_management" class="panel-collapse collapse {{ check_menu_active($current_location,['CategoriesController@create']) }}">
+                    <div class="panel-body panel-body-custom">
+                        <ul class="left-bar-menu-ul">
 
- 
+                        @if(checkMenuActive('CategoriesController@create',$menu_list))
+                            <li id="CategoriesController_create">{{ link_to_route('category.create','Category Create') }}</li>
+                        @endif
+                        @if(checkMenuActive('CategoriesController@index',$menu_list))
+                            <li id="CategoriesController_index">{{ link_to_route('category.index','Category List') }}</li>
+                        @endif
+
+                        
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+           <!-- User Management end -->
+    @endif
+    
+
+     
 
 
 
