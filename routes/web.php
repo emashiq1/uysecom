@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth','permissions']], funct
 	Route::resource('site_settings', 'SiteSettingsController',
                 ['only' => ['edit', 'update']]);	
 	Route::resource('category','CategoriesController');
+	Route::resource('product','ProductsController');
 });
 
 Auth::routes();

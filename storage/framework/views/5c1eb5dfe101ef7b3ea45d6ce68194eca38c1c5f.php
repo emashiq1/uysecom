@@ -110,6 +110,34 @@
             </div>
            <!-- User Management end -->
     <?php endif; ?>
+    <?php if(checkMenuActive(['ProductsController@create'],$menu_list)): ?>
+           <!-- User Management start -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <?php echo e(link_to('#product_management',mystudy_case('product_management'),array('data-toggle'=>'collapse','data-parent'=>'#accordion-menu'))); ?>
+
+                    </h4>
+                </div>
+                <div id="product_management" class="panel-collapse collapse <?php echo e(check_menu_active($current_location,['ProductsController@create'])); ?>">
+                    <div class="panel-body panel-body-custom">
+                        <ul class="left-bar-menu-ul">
+
+                        <?php if(checkMenuActive('ProductsController@create',$menu_list)): ?>
+                            <li id="ProductsController_create"><?php echo e(link_to_route('product.create','Product Create')); ?></li>
+                        <?php endif; ?>
+                        <?php if(checkMenuActive('ProductsController@index',$menu_list)): ?>
+                            <li id="ProductsController_index"><?php echo e(link_to_route('product.index','Products List')); ?></li>
+                        <?php endif; ?>
+
+                        
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+           <!-- User Management end -->
+    <?php endif; ?>
     
 
      

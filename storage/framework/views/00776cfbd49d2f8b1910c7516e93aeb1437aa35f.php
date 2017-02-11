@@ -1,11 +1,5 @@
 <?php $__env->startSection('content'); ?>
-<div class="col-md-6">
-<?php echo e(dump($errors)); ?>
-
-
-	
-	
-	
+<div class="col-md-6">	
 	<h2>Add New Category</h2>
 	<?php echo Form::model(Request::old(), ['route' => 'category.store','class'=>'form-group']); ?>
 
