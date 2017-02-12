@@ -23,13 +23,15 @@
 			<td>{{$element->title}}</td>
 			<td>{{$element->status}}</td>
 			
-			<td>{{$element->Categories['title']}}
+			<td>
+			{{$element->Categories['title']}}
 				@if ($element->Categories['id']==0)
 				{{'Root Category'}}
 			@endif
+
 			</td>
-			<td><a href="{{ route('category.edit',$element->id) }}" class="glyphicon glyphicon-edit"></a>
-			{!! Form::delete(route('category.destroy',$element->id)) !!}
+			<td><a href="{{ route('categories.edit',$element->id) }}" class="glyphicon glyphicon-edit"></a>
+			{!! Form::delete(route('categories.destroy',$element->id)) !!}
 			</td>
 			
 			

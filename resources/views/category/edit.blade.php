@@ -2,7 +2,7 @@
 @section('content')
 <div class="col-md-6">	
 	<h2>Update Category</h2>
-	{!! Form::model($data, ['route' => ['category.update',$data->id],
+	{!! Form::model($data, ['route' => ['categories.update',$data->id],
 	'class'=>'form-group']) !!}
 	{{ method_field('PUT') }}
 	<div>

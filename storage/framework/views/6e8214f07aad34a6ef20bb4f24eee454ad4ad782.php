@@ -22,15 +22,17 @@
 			<td><?php echo e($element->title); ?></td>
 			<td><?php echo e($element->status); ?></td>
 			
-			<td><?php echo e($element->Categories['title']); ?>
+			<td>
+			<?php echo e($element->Categories['title']); ?>
 
 				<?php if($element->Categories['id']==0): ?>
 				<?php echo e('Root Category'); ?>
 
 			<?php endif; ?>
+
 			</td>
-			<td><a href="<?php echo e(route('category.edit',$element->id)); ?>" class="glyphicon glyphicon-edit"></a>
-			<?php echo Form::delete(route('category.destroy',$element->id)); ?>
+			<td><a href="<?php echo e(route('categories.edit',$element->id)); ?>" class="glyphicon glyphicon-edit"></a>
+			<?php echo Form::delete(route('categories.destroy',$element->id)); ?>
 
 			</td>
 			

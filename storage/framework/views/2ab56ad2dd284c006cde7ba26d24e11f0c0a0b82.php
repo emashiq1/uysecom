@@ -1,10 +1,11 @@
 <?php $__env->startSection('content'); ?>
 	<h2>Add New Product</h2>
 	<hr>
-	<div class="col-md-12">
-		<?php echo Form::open(Request::old(), ['route'=>'product.store','class'=>'form-group','enctype' => 'multipart/form-data']); ?>
+	<div class="col-md-6">
+		<?php echo Form::model(Request::old(), ['route'=>'products.store','class'=>'form-group','files'=>true,'method'=>'post']); ?>
 
-		<div class="col-md-6">
+
+		<div class="">
 	<?php echo Form::label('title', '', []); ?>
 
 	<?php echo Form::text('title', null, ['class'=>'form-control']); ?>
@@ -23,7 +24,8 @@
 
 	<?php echo Form::label('status', '', []); ?>
 
-	<?php echo Form::text('status', '', ['class'=>'form-control']); ?>
+	<?php echo e(Form::select('status',config('myhelpers.status'),null,array('class' => 'form-control'))); ?>
+
 
 	<hr>
 	</div>
@@ -38,8 +40,8 @@
 
 
 	</div>
-	<hr>
-	<?php echo Form::submit("Save", ['class'=>'btn btn-info']); ?>
+	
+	<?php echo Form::submit("Save", ['class'=>'btn btn-info','style'=>'margin-top:20px;margin-left:17px;width:100px;']); ?>
 
 	
 	<?php echo Form::close(); ?>

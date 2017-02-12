@@ -2,7 +2,7 @@
 @section('content')
 <div class="col-md-6">	
 	<h2>Add New Category</h2>
-	{!! Form::model(Request::old(), ['route' => 'category.store','class'=>'form-group']) !!}
+	{!! Form::model(request()->old(), ['route' => 'categories.store','class'=>'form-group','method'=>'post']) !!}
 	<div>
 		{!! Form::label('Title', '', []) !!}
 	{!! Form::text('title', '', ['class'=>'form-control']) !!}
@@ -12,7 +12,8 @@
 	</div>
 	<div>
 	{!! Form::label('Status', '', []) !!}
-	{!! Form::text('Status', '', ['class'=>'form-control']) !!}
+	{{Form::select('status',config('myhelpers.status'),null,array('class' => 'form-control')) }}
+
 	
 	@if ($errors->has('status'))
 		<span class="alert-warning">{{$errors->first('status')}}</span>

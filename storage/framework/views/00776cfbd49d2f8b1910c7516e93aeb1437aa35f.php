@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
 <div class="col-md-6">	
 	<h2>Add New Category</h2>
-	<?php echo Form::model(Request::old(), ['route' => 'category.store','class'=>'form-group']); ?>
+	<?php echo Form::model(request()->old(), ['route' => 'categories.store','class'=>'form-group','method'=>'post']); ?>
 
 	<div>
 		<?php echo Form::label('Title', '', []); ?>
@@ -15,7 +15,8 @@
 	<div>
 	<?php echo Form::label('Status', '', []); ?>
 
-	<?php echo Form::text('Status', '', ['class'=>'form-control']); ?>
+	<?php echo e(Form::select('status',config('myhelpers.status'),null,array('class' => 'form-control'))); ?>
+
 
 	
 	<?php if($errors->has('status')): ?>

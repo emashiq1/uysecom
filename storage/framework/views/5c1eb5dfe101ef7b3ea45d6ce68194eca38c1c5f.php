@@ -96,10 +96,10 @@
                         <ul class="left-bar-menu-ul">
 
                         <?php if(checkMenuActive('CategoriesController@create',$menu_list)): ?>
-                            <li id="CategoriesController_create"><?php echo e(link_to_route('category.create','Category Create')); ?></li>
+                            <li id="CategoriesController_create"><?php echo e(link_to_route('categories.create','categories Create')); ?></li>
                         <?php endif; ?>
                         <?php if(checkMenuActive('CategoriesController@index',$menu_list)): ?>
-                            <li id="CategoriesController_index"><?php echo e(link_to_route('category.index','Category List')); ?></li>
+                            <li id="CategoriesController_index"><?php echo e(link_to_route('categories.index','categories List')); ?></li>
                         <?php endif; ?>
 
                         
@@ -124,10 +124,10 @@
                         <ul class="left-bar-menu-ul">
 
                         <?php if(checkMenuActive('ProductsController@create',$menu_list)): ?>
-                            <li id="ProductsController_create"><?php echo e(link_to_route('product.create','Product Create')); ?></li>
+                            <li id="ProductsController_create"><?php echo e(link_to_route('products.create','Product Create')); ?></li>
                         <?php endif; ?>
                         <?php if(checkMenuActive('ProductsController@index',$menu_list)): ?>
-                            <li id="ProductsController_index"><?php echo e(link_to_route('product.index','Products List')); ?></li>
+                            <li id="ProductsController_index"><?php echo e(link_to_route('products.index','Products List')); ?></li>
                         <?php endif; ?>
 
                         

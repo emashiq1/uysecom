@@ -2,9 +2,10 @@
 @section('content')
 	<h2>Add New Product</h2>
 	<hr>
-	<div class="col-md-12">
-		{!! Form::open(Request::old(), ['route'=>'product.store','class'=>'form-group','enctype' => 'multipart/form-data']) !!}
-		<div class="col-md-6">
+	<div class="col-md-6">
+		{!! Form::model(Request::old(), ['route'=>'products.store','class'=>'form-group','files'=>true,'method'=>'post']) !!}
+
+		<div class="">
 	{!! Form::label('title', '', []) !!}
 	{!! Form::text('title', null, ['class'=>'form-control']) !!}
 	{!! Form::label('category', '', []) !!}
@@ -14,7 +15,8 @@
 	{!! Form::label('price', 'Price in BDT', []) !!}
 	{!! Form::number('price', '', ['class'=>'form-control']) !!}
 	{!! Form::label('status', '', []) !!}
-	{!! Form::text('status', '', ['class'=>'form-control']) !!}
+	{{Form::select('status',config('myhelpers.status'),null,array('class' => 'form-control')) }}
+
 	<hr>
 	</div>
 	
@@ -26,8 +28,8 @@
    {!! Form::file('image[]', []) !!}
 
 	</div>
-	<hr>
-	{!! Form::submit("Save", ['class'=>'btn btn-info']) !!}
+	
+	{!! Form::submit("Save", ['class'=>'btn btn-info','style'=>'margin-top:20px;margin-left:17px;width:100px;']) !!}
 	
 	{!! Form::close() !!}
 	</div>

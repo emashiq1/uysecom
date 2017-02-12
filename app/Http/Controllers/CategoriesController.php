@@ -38,30 +38,19 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
-       /* $data=$request->except(['_method','_token']);
-
-        $validator=Validator::make($data, [
-        'title' => 'required|unique:posts|max:255',
-        'status' => 'required|max:255',
-        ]);
         
-        if($validator->fails())
-        {
-            return back()
-                ->withErrors($validator);
-        }
-        else{*/
-            $check=Category::create($request->except(['_token']));
+        $data=request()->except(['_method','_token']);
+            $check=Category::create($data);
+           
             if($check)
             {
                 
-                return redirect('admin/category');
+                return redirect('admin/categories');
             }
-            /*    
-            }*/
+              
+            
            
     }
 

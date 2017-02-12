@@ -22,8 +22,8 @@ Route::group(['prefix' => 'admin','middleware' => ['auth','permissions']], funct
 	Route::delete('/users/{user}', 'Auth\RegisterController@destroyUser')->name('users.destroy');
 	Route::resource('site_settings', 'SiteSettingsController',
                 ['only' => ['edit', 'update']]);	
-	Route::resource('category','CategoriesController');
-	Route::resource('product','ProductsController');
+	Route::resource('categories','CategoriesController');
+	Route::resource('products','ProductsController');
 });
 
 Auth::routes();

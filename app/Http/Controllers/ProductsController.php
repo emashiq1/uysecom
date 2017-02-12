@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use App\Product_Image;
 
 class ProductsController extends Controller
 {
@@ -32,10 +34,29 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
-        return $request->all();
+        //return request()->all();
+        $data=request()->except('image');
+        
+        $check=Product::create($data)->id;
+        $files=request()->file('image');
+        if($check)
+        {
+         
+            foreach($files as $file)
+            {
+               
+                $myarray=['product_id'=>$check,'img'=>$file->getClientOriginalExtension()];
+            $iCheck=Product_Image::create($myarray)->id;
+            $filename=$iCheck.$file->getClientOriginalExtension();
+            $file->move('productimage', $fileName); 
+            }
+            
+            
+        }
+        
+       
     }
 
     /**

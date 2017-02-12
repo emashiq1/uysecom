@@ -8,12 +8,11 @@ class Category extends Model
 {
     //
     protected $guarded=['id'];
-    protected $fillable=['title','status','parent_id'];
+    
     public function category()
     {
     	 return $this->hasMany('App\Category','parent_id');
     }
-    
     public function Categories()
     {
     	return $this->belongsTo('App\Category','parent_id');

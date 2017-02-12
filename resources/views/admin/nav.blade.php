@@ -92,10 +92,10 @@
                         <ul class="left-bar-menu-ul">
 
                         @if(checkMenuActive('CategoriesController@create',$menu_list))
-                            <li id="CategoriesController_create">{{ link_to_route('category.create','Category Create') }}</li>
+                            <li id="CategoriesController_create">{{ link_to_route('categories.create','categories Create') }}</li>
                         @endif
                         @if(checkMenuActive('CategoriesController@index',$menu_list))
-                            <li id="CategoriesController_index">{{ link_to_route('category.index','Category List') }}</li>
+                            <li id="CategoriesController_index">{{ link_to_route('categories.index','categories List') }}</li>
                         @endif
 
                         
@@ -119,10 +119,10 @@
                         <ul class="left-bar-menu-ul">
 
                         @if(checkMenuActive('ProductsController@create',$menu_list))
-                            <li id="ProductsController_create">{{ link_to_route('product.create','Product Create') }}</li>
+                            <li id="ProductsController_create">{{ link_to_route('products.create','Product Create') }}</li>
                         @endif
                         @if(checkMenuActive('ProductsController@index',$menu_list))
-                            <li id="ProductsController_index">{{ link_to_route('product.index','Products List') }}</li>
+                            <li id="ProductsController_index">{{ link_to_route('products.index','Products List') }}</li>
                         @endif
 
                         
