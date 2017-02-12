@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
 <div class="col-md-6">	
 	<h2>Update Category</h2>
-	<?php echo Form::model($data, ['route' => ['category.update',$data->id],
+	<?php echo Form::model($data, ['route' => ['categories.update',$data->id],
 	'class'=>'form-group']); ?>
 
 	<?php echo e(method_field('PUT')); ?>

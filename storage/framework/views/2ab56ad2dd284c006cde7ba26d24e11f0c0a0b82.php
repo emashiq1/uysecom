@@ -12,8 +12,11 @@
 
 	<?php echo Form::label('category', '', []); ?>
 
-	<?php echo Form::select('category', ['select'], '', ['class'=>'form-control']); ?>
-
+	<select name="category_id" class="form-control">
+	<?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+		<option value="<?php echo e($element->id); ?>"><?php echo e($element->title); ?></option>
+	<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+	</select>
 	<?php echo Form::label('description', '', []); ?>
 
 	<?php echo Form::textarea('description', '', []); ?>

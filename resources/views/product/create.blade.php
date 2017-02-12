@@ -9,7 +9,11 @@
 	{!! Form::label('title', '', []) !!}
 	{!! Form::text('title', null, ['class'=>'form-control']) !!}
 	{!! Form::label('category', '', []) !!}
-	{!! Form::select('category', ['select'], '', ['class'=>'form-control']) !!}
+	<select name="category_id" class="form-control">
+	@foreach ($data as $element)
+		<option value="{{$element->id}}">{{$element->title}}</option>
+	@endforeach
+	</select>
 	{!! Form::label('description', '', []) !!}
 	{!! Form::textarea('description', '', []) !!}
 	{!! Form::label('price', 'Price in BDT', []) !!}
